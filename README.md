@@ -64,7 +64,7 @@ The `channel`folder incldues the files that list the retreived channels and the 
 
 # Classification `/code/classification`
 
-The notebook `Classification.ipynb` (R) uses the Quanteda library to perform quantitative analysis using 4 dictionaries, resulting in the classification of each video with the following:
+The notebook `Classification.ipynb` (R) in the `Quanteda` folder uses the Quanteda library to perform quantitative analysis using 4 dictionaries, resulting in the classification of each video with the following:
 * **positive**: the number of positive words
 * **negative**: the number of negative words
 * **sentiment**: the larger of positive vs. negative above
@@ -75,11 +75,20 @@ The notebook `Classification.ipynb` (R) uses the Quanteda library to perform qua
 * **ARI**: the Automated Readability Index
 * **Flesch.Kincaid**: the Flesch-Kincaid readability index
 
-The resulting files are stored in the `Subtitles/classified` folder with prefix `classified_subtitles`.
+The resulting files are stored in the `Quanteda/Subtitles/classified` folder with prefix `classified_subtitles`.
 
-# Organize, count and plot
+The `categorizeSubtitles`functions perform the job. The code on the las cell allos to indicate the pattern for the files to be processed.
 
+# Organize, count and plot `/code/inventory`
 
+The notebook `inventory_R.ipynb` (R) starts loading the files from the original `results` folder and producing several counts that are part of the results of the project. 
 
+The `Classification` loads the files from the `Quanteda/Subtitles/Classified/` folder whioch contains the list of unique videos and their classifications. A few more counts are produced by different groupings and these classified videos are then merged with the full list of results. Counts by different groupings are then produced.
 
+The Sentiment by Ratio and labels for the readability results are added.
 
+After a few more counts, the charting functions are created. Each of these funcitons will arrange the data so the charts can be produced for the different groupings and the charts be produced.
+
+The cells below represent runs of the functions to produce the charts which are written to files in the `/inventory/Entregas/Images` folder. Each set of charts is built by selecting a specific bias from the search results and building a tree from the children of the videos with that bias.
+
+There is a second version of the inventory file, `inventory_R_plotting_fromFiles.ipynb` (R) which produced a set of charts for each search term.
