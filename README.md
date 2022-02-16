@@ -54,10 +54,3 @@ All the coding was done and is published in Jupyuuter Notebooks format, some in 
 25. createPlottingDatasets
 25. createPlottingDatasets-Copy1
 26. inventory_R_plotting_fromFiles
-
-
-After a few more counts, the charting functions are created. Each of these funcitons will arrange the data so the charts can be produced for the different groupings and the charts be produced.
-
-The cells below represent runs of the functions to produce the charts which are written to files in the `/inventory/Entregas/Images` folder. Each set of charts is built by selecting a specific bias from the search results and building a tree from the children of the videos with that bias.
-
-There is a second version of the inventory file, `inventory_R_plotting_fromFiles.ipynb` (R) which produced a set of charts for each search term.
