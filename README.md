@@ -19,84 +19,42 @@ The code available in this repository was used to :
 
 The names of the files indicate the order in which they were executed, as well as their functions. Along the executions, datafiles are created to allow for the continuation of the tasks without having to repeat previous steps.
 
-All the code executed in found in the `./code` folder and datafiles at the different stages can be found in the `./code/results`, `./code/model`, `./code/processed` and `./code/counts` folders.
+All the code executed in found in the `./code` folder and datafiles at the different stages can be found (compressed) in the `./code/results`, `./code/model`, `./code/processed` and `./code/counts` folders.
 
 All the coding was done and is published in Jupyuuter Notebooks format, some in Python and some in R.
 
-# Video Extraction
+### Video Extraction
 
+1. YouTubeScraper.ipynb
+2. completeVideoMetadata
+3. extractVideoTranscript
 
+### Transcript Classification
 
+4. classifyTranscripts_R
 
+### Training Videos Extraction and PReparation
 
+6. channelStats
+7. extractTrainingVideoTranscript
+8. classifyTrainingTranscripts_R
 
-The notebook `YouTubeScraper.ipynb` (Phython) performs the main collection of search and recommendation results and dumps it into a file representing the search results tree.
+### Model Creation and Results Classification
 
-After the creation of a few funcitons, the key is the `build_tree_from_search` which is called as an example in the last cell. The parameters for running it are:
-* **query**: one or more search terms separated by comma. Each search term can contain one or more words
-* **search_results**: the number of search results to be fetched
-* **branching**: the number of recommendation results to be fetched at each recommendation level
-* **depth**: the numebr of recommendation levels to be fetched
-* **gl**: the location (country) passed of the query
-* **language**: the language to filter the videos by
-* **recent**: a flag to only query recent videos
-* **lookup**: deprecated
-* **alltime**: a flag indicating that videos from all dates are allowed
-* **top_rated**: a flag indicating that only top_rated videos are allowed
+10. modelCreation_1-fromresults-Dataset1
+10. modelCreation_1-fromresults-Dataset2
+10. modelCreation_1-fromresults-Dataset3
+10. modelCreation_channel_proportional_Dataset4-top15
+10. modelCreation_channel_proportional_Dataset5-top15
+10. modelCreation_1-fromresults-Dataset6
 
-The results are written in files, one per query term, concatenated with a timestamp and stored on the `./results`foilder.
+### Inventory and plotting
 
-Although the intention was to extract several video properties (channel, likes, etc.) several were dropped as they would not be used in the study, and the received htnl didn't consistently include them.
+20. inventory_R
+25. createPlottingDatasets
+25. createPlottingDatasets-Copy1
+26. inventory_R_plotting_fromFiles
 
-Execution for a single search term with **search_results=5**, **branching=5** and **depth=5** can take about 12 hours. During that, a couple of queries in the notebook `ValidateData.ipynb` allows to query the files in the `./results` folder to monitor the progress.
-
-# Transcript Extraction
-
-The notebook `extract_full_subtitles_to_file.ipynb` (Python) performs the extraction of transcripts.
-
-After the creation of a few functions, the `filepaths` variable is unsed to indicate the folder to be investigating. This is generally the `./results` folder. All the files that comply with the pattern (`endswith` in the current status will be processed.
-
-The routine in the last cell will keep only the unique videos and for each, retrieve the transcripts and create a new file with the same columns as the video extraction results, plus the transcript. The resulting file is stored in the `./subtitles` folder.
-
-Executing for a the whole dataset can take up to 24 hours. During that, a couple of queries in the notebook `ValidateSubtitles.ipynb` allows to query the files in the `./subtitles` folder to monitor the progress.
-
-# Channel Titles and Bias
-
-The metadata provided by the vidoe fetching libraries includes the channel Id, not the title. It was also the case that the channels would not be available for all videos, or for difference appearances of the same video in the search results.
-
-Routines in the `channelTitles.ipynb` (Python) notebook allow to:
-* Get the titles for the fetched channels
-* Assign channel to the instances of videos that did not retrieve a channel, where there was another instance that did
-* Recreate the results files, now with channel title and bias (the channel-bias file had been created manually)
-
-The need for the above routines will depend on the quality of the originally fetched results.
-
-The `channel`folder incldues the files that list the retreived channels and the match between channels and bias.
-
-# Classification `/code/classification`
-
-The notebook `Classification.ipynb` (R) in the `Quanteda` folder uses the Quanteda library to perform quantitative analysis using 4 dictionaries, resulting in the classification of each video with the following:
-* **positive**: the number of positive words
-* **negative**: the number of negative words
-* **sentiment**: the larger of positive vs. negative above
-* **lgpp**: the Policy Position, according to the Laver & Garry Dictionary of Policy Position dictionary
-* **nrc_el**: the Emotion, according to the NRC Emotion Lexicon (version 0.92) dictionary
-* **topic**: the Topic, according to a topic dictionary available in Quanteda
-* **Flesch**: the Flesch readability index
-* **ARI**: the Automated Readability Index
-* **Flesch.Kincaid**: the Flesch-Kincaid readability index
-
-The resulting files are stored in the `Quanteda/Subtitles/classified` folder with prefix `classified_subtitles`.
-
-The `categorizeSubtitles`functions perform the job. The code on the las cell allos to indicate the pattern for the files to be processed.
-
-# Organize, count and plot `/code/inventory`
-
-The notebook `inventory_R.ipynb` (R) starts loading the files from the original `results` folder and producing several counts that are part of the results of the project. 
-
-The `Classification` loads the files from the `Quanteda/Subtitles/Classified/` folder whioch contains the list of unique videos and their classifications. A few more counts are produced by different groupings and these classified videos are then merged with the full list of results. Counts by different groupings are then produced.
-
-The Sentiment by Ratio and labels for the readability results are added.
 
 After a few more counts, the charting functions are created. Each of these funcitons will arrange the data so the charts can be produced for the different groupings and the charts be produced.
 
