@@ -4,7 +4,17 @@
 This project was created in the contaext of a Master's Degree project and is not intended to be maintained. The code and data is available for further development and use, as is.
 
 # Objective
-This project aimed to analyze the political bias in YouTube search and recomendation results in the context of the US political discussion. The individual bias of each result was assigned by the channel that published the video, according to www.mediabiasfactcheck.com and/or www.allsides.com. The overall bias was calculated counting the number of videos of each bias in the search results and at multiple levels of recommendations.
+This project aimed to analyze the political bias in YouTube search and recomendation results in the context of the US political discussion. The project aimed to answer the following qustions:
+
+
+# Methodology
+
+AFter the extraction of more than 460,000 search and recommendation results, the 
+
+
+Where available, the individual bias of each result was assigned by the channel that published the video, according to www.mediabiasfactcheck.com and/or www.allsides.com. For videos published by channels not classified in the two reference sources, a model was creatd based on classified videos and 
+
+The overall bias was calculated counting the number of videos of each bias in the search results and at multiple levels of recommendations.
 
 Along with the bias, the "echo chamber" effect was analyzed by documenting how selecting videos with a given bias affects the bias of the recommendations that follow. This effect was also studied with alternative classifications using available dictionaries.
 
