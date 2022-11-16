@@ -1,5 +1,5 @@
 # youtube-bias-analysis
-## Extract and analyse the bias of a a large set of search and recommendation results from YouTube
+## Extract and analyse the bias of a large set of search and recommendation results from YouTube
 
 This project was created in the contaext of a Master's Degree project and is not intended to be maintained. The code and data is available for further development and use, as is.
 
