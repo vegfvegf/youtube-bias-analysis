@@ -8,20 +8,21 @@ This project aimed to analyze the political bias in YouTube search and recomenda
 
 1. Are YouTube users being exposed to a balanced mix of politically biased content?
 2. Does YouTube promote the echo chamber effect?
-3. Doe YouTube promote Mainstream Media over Independent Media content?
+3. Does YouTube promote Mainstream Media over Independent Media content?
 
 # Methodology
 
-After the extraction of more than 460,000 search and recommendation results, the publishing channels were identified anc classified according to www.mediabiasfactcheck.com and/or www.allsides.com. For the videos published from channels not classified, few models and training datasets were created to select the bet performing one and use it to classify the remaining videos.
+After the extraction of more than 460,000 search and recommendation results, the publishing channels were identified and classified according to www.mediabiasfactcheck.com and/or www.allsides.com. For the videos published from channels not classified, few models and training datasets were created to select the best performing one and use it to classify the remaining videos.
 
 After the classification, the full results set was analyzed.
-The code available in this repository was used to :
+
+The code available in this repository was used to execute the multiple phases of the extraction, porcessing and preparation for analysis.
 
 The names of the files indicate the order in which they were executed, as well as their functions. Along the executions, datafiles are created to allow for the continuation of the tasks without having to repeat previous steps.
 
-All the code executed in found in the `./code` folder and datafiles at the different stages can be found (compressed) in the `./code/results`, `./code/model`, `./code/processed` and `./code/counts` folders.
+All the code executed in found in the `./code` folder and datafiles at the different stages can be found (compressed and splitted s necessary) in the `./code/results`, `./code/model`, `./code/processed` and `./code/counts` folders.
 
-All the coding was done and is published in Jupyuuter Notebooks format, some in Python and some in R.
+All the coding was done and is published in Jupyter Notebooks format, most in Python and some in R.
 
 ### Video Extraction
 
