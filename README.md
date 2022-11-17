@@ -20,7 +20,7 @@ The code available in this repository was used to execute the multiple phases of
 
 The names of the files indicate the order in which they were executed, as well as their functions. Along the executions, datafiles are created to allow for the continuation of the tasks without having to repeat previous steps.
 
-All the code executed in found in the `./code` folder and datafiles at the different stages can be found (compressed and splitted s necessary) in the `./code/results`, `./code/model`, `./code/processed` and `./code/counts` folders.
+All the code executed in found in the `./code` folder and datafiles at the different stages can be found (compressed and splitted s necessary) in the `./code/results`, `./code/model` and `./code/processed` folders.
 
 All the coding was done and is published in Jupyter Notebooks format, most in Python and some in R.
 
